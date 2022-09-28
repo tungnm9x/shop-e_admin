@@ -1,0 +1,171 @@
+<div class="sticky top-0 bg-white z-50 header-shadow">
+  <div class="py-2 bg-black text-white hidden lg:block">
+    <div class="container mx-auto">
+      <p class="text-center">POLOMΛN NEW VERSION</p>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div
+      class="flex items-center justify-between py-6 lg:justify-start lg:space-x-10"
+    >
+      <div class="flex justify-start lg:w-0 lg:flex-1">
+        <a [routerLink]="['/']">
+          <img
+            class="w-auto"
+            src="/assets/logo.svg"
+            alt="logo"
+            style="width: 124px"
+          />
+        </a>
+      </div>
+      <div class="-my-2 -mr-2 lg:hidden">
+        <button
+          class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+          (click)="isShow = true"
+        >
+          <span class="sr-only">Open menu</span>
+          <!-- Heroicon name: outline/bars-3 -->
+          <svg
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden space-x-10 lg:flex">
+        <a
+          *ngFor="let i of items"
+          [routerLink]="[i.route]"
+          [routerLinkActive]="'font-bold'"
+          class="text-sm font-medium hover:font-bold"
+          >{{ i.label }}
+        </a>
+      </nav>
+      <div class="hidden items-center justify-end lg:flex lg:flex-1 lg:w-0">
+        <!-- <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-9 h-9 cursor-pointer rounded-full p-1 hover:bg-gray-200 mr-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          />
+        </svg> -->
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-9 h-9 cursor-pointer rounded-full p-1 hover:bg-gray-200"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!--        MOBILE menu -->
+  <div
+    *ngIf="isShow"
+    class="absolute inset-x-0 top-0 origin-top-right transform p-2 transition lg:hidden"
+  >
+    <div
+      class="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5"
+    >
+      <div class="px-5 pt-5 pb-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <img
+              class="h-8 w-auto"
+              src="https://polomanor.vn/1428355432291766272/images/Polomanor.svg"
+              alt="logo"
+              style="max-width: 124px"
+            />
+          </div>
+          <div class="-mr-2">
+            <button
+              (click)="isShow = false"
+              class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+            >
+              <span class="sr-only">Close menu</span>
+              <!-- Heroicon name: outline/x-mark -->
+              <svg
+                class="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="mt-6">
+          <nav class="grid gap-y-8">
+            <ng-container *ngFor="let i of items">
+              <a
+                [routerLink]="[i.route]"
+                class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
+              >
+                <!-- Heroicon name: outline/chart-bar -->
+                <img class="h-6 w-6 flex-shrink-0" [src]="i.icon" alt="icon" />
+
+                <span class="ml-3 text-sm font-medium text-gray-900">{{
+                  i.label
+                }}</span>
+              </a>
+            </ng-container>
+          </nav>
+        </div>
+      </div>
+      <div class="space-y-6 py-6 px-5">
+        <div>
+          <!-- <a
+            href="#"
+            class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700"
+            >Sign up</a
+          > -->
+          <button
+            class="text-white px-10 py-3 hover:opacity-70 w-full bg-primary"
+          >
+            Đăng ký
+          </button>
+          <p class="mt-6 text-center text-sm font-medium text-gray-500">
+            Đã có tài khoản?
+            <a href="#" class="text-indigo-600 hover:text-indigo-500"
+              >Đăng nhập</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
